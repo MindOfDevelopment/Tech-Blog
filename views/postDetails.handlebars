@@ -1,0 +1,19 @@
+<div class='text-center' data-post_id='{{id}}'>
+  <h2>{{title}}</h2>
+  <p>{{content}}</p>
+  <p>Created by {{user.name}} on {{format_date createdAt}}</p>
+
+  {{#if logged_in}}
+    <form class='comment-form'>
+      <p>Leave a comment</p>
+      <input type='text' id='comment-text' />
+      <button class='btn btn-primary' type='submit'>Submit</button>
+    </form>
+  {{/if}}
+
+  <div class='comments'>
+    {{#each text as |texts|}}
+      <p class='comment'>{{text}}</p>
+    {{/each}}
+  </div>
+</div>
