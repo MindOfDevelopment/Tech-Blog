@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment,User } = require('../models');
+const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Use withAuth middleware to prevent access to route
@@ -21,5 +21,6 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;

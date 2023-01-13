@@ -4,16 +4,58 @@
   <p>Created by {{user.name}} on {{format_date createdAt}}</p>
 
   {{#if logged_in}}
-    <form class='comment-form'>
+    {{#if isOwner}}
+      <div class='edit_post_menus'>
+        <div class='col-md-4'>
+          <button
+            class='btn btn-sm btn-danger delete-post'
+            data-id='{{id}}'
+          >DELETE</button>
+        </div>
+        <p class='post_edit_link'>
+          <a href='/posts/{{id}}/edit'>Edit</a>
+        </p>
+      </div>
+    {{/if}}
+    <form id='comment-form'>
       <p>Leave a comment</p>
       <input type='text' id='comment-text' />
-      <button class='btn btn-primary' type='submit'>Submit</button>
+      <button
+        class='btn btn-primary'
+        type='submit'
+        id='comment-submit'
+      >Submit</button>
     </form>
   {{/if}}
 
   <div class='comments'>
-    {{#each text as |texts|}}
-      <p class='comment'>{{text}}</p>
+    <h3>Comments</h3>
+    {{#each comments as |comment|}}
+      <div class='comment-container'>
+        <p>
+          <span>{{comment.user.username}}</span>
+          <span>{{format_date comment.createdAt}}</span>
+        </p>
+        <p class='comment'>{{comment.text}}</p>
+        {{#if comment.isMyComment}}
+          <div class='edit_comment_menus'>
+            <button
+              class='btn btn-sm btn-danger delete-comment'
+              data-id='{{comment.id}}'
+              data-post_id='{{id}}'
+            >DELETE</button>
+            <button
+              class='btn btn-sm btn-danger edit-comment'
+              onclick="setUpdateComment('{{comment.text}}','{{comment.id}}')"
+            >Edit</button>
+
+          </div>
+        {{/if}}
+      </div>
     {{/each}}
   </div>
 </div>
+
+{{#if logged_in}}
+  <script src='../js/postDetails.js'></script>
+{{/if}}

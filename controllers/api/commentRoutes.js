@@ -34,4 +34,28 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const newComment = await Comment.update(
+      {
+        text: req.body.text,
+      },
+      { where: { id: req.params.id } }
+    );
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const comment = Comment.destroy({ where: { id: req.params.id } });
+    res.status(200).json(comment);
+  } catch (error) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

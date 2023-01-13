@@ -38,14 +38,48 @@ router.get('/posts/:id', async (req, res) => {
         {
           model: Comment,
           // attributes: ['text'],
+          include: [
+            {
+              model: User,
+              attributes: ['username'],
+            },
+          ],
         },
       ],
     });
 
     const post = postData.get({ plain: true });
+    const comments = post.comments.map((c) => {
+      return { ...c, isMyComment: c.user_id == req.session.user_id };
+    });
+    post.comments = comments;
+
     console.log('POST', post);
 
     res.render('postDetails', {
+      ...post,
+      logged_in: req.session.logged_in,
+      isOwner: req.session.user_id === post.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Edit Post
+router.get('/posts/:id/edit', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render('editPost', {
       ...post,
       logged_in: req.session.logged_in,
     });
