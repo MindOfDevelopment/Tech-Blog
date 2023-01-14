@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  background-color: dodgerblue;
+  padding: 10 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header h1 a {
+  font-size: 35px;
+}
+
+header nav a {
+  font-size: 22px;
+}
+
+main,
+footer {
+  padding: 15px 50px;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.post-container {
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid black;
+}
+
+.post-header {
+  background-color: rgb(235, 235, 235);
+  padding: 5px 0;
+}
+
+.post-content {
+  border-left: 1px solid black;
+  padding: 5px;
+}
+
+.post-details-content {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.post-details .created_by {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.comments {
+  margin-left: 20px;
+  background-color: rgb(235, 235, 235);
+  padding: 5px;
+  margin-top: 10px;
+}
+.comment-container {
+  display: flex;
+  gap: 10px;
+  padding: 5px 0;
+}
+
+.comment-container p:first-child {
+  background-color: dodgerblue;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container p span {
+  padding: 3px;
+}
+
+.edit_post_menus {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.dashboard-header h1 {
+  margin-bottom: 15px;
+}
+
+.dashboard-body h3 {
+  margin-bottom: 10px;
+}
+
+.dashboard-body form {
+  margin-top: 10px;
+  padding: 5px 0;
+}
+
+.form-group {
+  margin-bottom: 3px;
+}
+.form-group label {
+  min-width: 100px;
+  display: inline-block;
+}
+
+.form-group input,
+.form-group textarea {
+  min-width: 250px;
+}
+
+.dashboard-body form button,
+.edit-post-form button {
+  display: inline-block;
+  width: 150px;
+  margin: auto;
+  padding: 5px;
+}
+
+.dashboard-posts {
+  margin-top: 15px;
+}
+
+.dashboard-posts h4 {
+  margin-bottom: 10px;
+}
+
+.auth-page {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: auto;
+}
+
+.auth-page button {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+}
+
+.logout-btn {
+  padding: 5px 10px;
+}
+
+footer {
+  text-align: center;
+  background-color: dodgerblue;
+  color: white;
+}

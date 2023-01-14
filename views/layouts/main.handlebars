@@ -8,30 +8,28 @@
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
-      <header class='display-flex justify-space-between align-center p-2'>
-        <h1>
-          <a href='/'>Tech Blog</a>
-        </h1>
-        <nav>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <a href='/dashboard'>dashboard</a>
-            |
-            <button class='no-button' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>login</a>
-          {{/if}}
-        </nav>
-      </header>
-      <main class='container container-fluid mt-5'>
-        <!-- Render the sub layout -->
-        {{{body}}}
-      </main>
-      <footer>
-
-      </footer>
-    </div>
+    <header class='top-nav'>
+      <h1>
+        <a href='/'>Tech Blog</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+          <a href='/dashboard'>dashboard</a>
+          |
+          <button class='logout-btn' id='logout'>logout</button>
+        {{else}}
+          <a href='/login'>login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      <!-- Render the sub layout -->
+      {{{body}}}
+    </main>
+    <footer>
+      <p>All rights reserved 2023</p>
+    </footer>
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}

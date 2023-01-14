@@ -1,9 +1,8 @@
 <!-- Loop over each object in the posts array -->
 {{#each posts as |post|}}
-  <div class='row mb-4 post'>
-    <div class='col-md-5'>
+  <div class='post-container'>
+    <div class='post-header'>
       <h2>
-        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
         <a href='/posts/{{post.id}}'>{{post.title}}</a>
       </h2>
 
@@ -12,7 +11,7 @@
         on
         {{format_date post.createdAt}}</p>
     </div>
-    <div class='col-md-7'>
+    <div class='post-content'>
       <p>
         {{post.content}}
       </p>

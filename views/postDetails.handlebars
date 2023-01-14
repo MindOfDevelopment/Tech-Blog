@@ -1,7 +1,10 @@
-<div class='text-center' data-post_id='{{id}}'>
+<div class='text-center post-details' data-post_id='{{id}}'>
   <h2>{{title}}</h2>
-  <p>{{content}}</p>
-  <p>Created by {{user.name}} on {{format_date createdAt}}</p>
+  <p class='post-details-content'>{{content}}</p>
+  <p class='created_by'>Created by
+    {{user.name}}
+    on
+    {{format_date createdAt}}</p>
 
   {{#if logged_in}}
     {{#if isOwner}}
