@@ -26,5 +26,8 @@
     "eslint-config-prettier": "^6.15.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.1.2"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
