@@ -47,4 +47,4 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 Heroku Deployment URL: 
 
-[https://git.heroku.com/calm-journey-94907.git]
+[https://calm-journey-94907.herokuapp.com/]
